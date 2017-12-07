@@ -36,18 +36,20 @@ function actor(line, result) {
 }
 
 function transition(line, result) {
-  line.shift(); // remove the 'From'
   const first = [];
   const second = [];
   const text = [];
 
+  line.shift(); // remove 'The'
+  const typeOrActor = line.shift();
+
   let current = line.shift();
   while (!_.includes(current, '>')) {
-    first.push(current);
+    text.push(current);
     current = line.shift();
   }
-  first.push(current);
-  line.shift(); // remove the 'to'
+  text.push(current);
+
 
   current = line.shift();
   while (!_.includes(current, '>')) {
@@ -56,16 +58,16 @@ function transition(line, result) {
   }
   second.push(current);
 
-  if (line[0] === 'the') { line.shift(); }
-
-  const typeOrActor = line.shift();
+  line.shift(); // remove the 'from'
 
   current = line.shift();
   while (!_.includes(current, '>')) {
-    text.push(current);
+    first.push(current);
     current = line.shift();
   }
-  text.push(current);
+
+  first.push(current);
+
   result.transitions.push({
     from: first.join(' ').replace(/<|>/g, ''),
     to: second.join(' ').replace(/<|>/g, ''),

@@ -10,8 +10,8 @@ function isATypeOrActor(line) {
 
 function isATransition(line) {
   return (
-    line[0] === 'From' &&
-    _.includes(line, 'to')
+    line[0] === 'The' &&
+    _.includes(line, 'from')
   );
 }
 

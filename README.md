@@ -99,10 +99,10 @@ If a boy <is startled by> a ghost then the boy <starts to cry>. If a man <sees> 
 
 ### Transitions
 
-FORMAT: From <{place one}> to <{place two}> the {type or actor} <{does something}>.
+FORMAT: The {type or actor} <{transitions to}> <{destination}> from <{origin}>.
 ```code
-From <the red house> to <the field of wheat> the man <goes out to>.
-From <the sky> to <the field of wheat> the bird <swoops down into>.
+The man <goes out to> <the field of wheat> from <the red house>.
+The bird <swoops down into> <the field of wheat> from <the sky>.
 ```
 
 ### Full Example

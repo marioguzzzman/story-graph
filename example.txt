@@ -28,9 +28,9 @@ If a crab <startles> a minnows then the minnows <dart away>.
 If a bird <flies into> an expansive entity then the bird <soars high above> the expansive entity.
 If a bird <discovers> a small solid then the bird <settles upon> the small solid.
 
-From <the grey sky> to <the seashore> the bird <swoops down onto>.
-From <the seashore> to <the grey sky> the bird <soars up into>.
-From <the ocean> to <the seashore> the crab <crawls slowly up onto>.
-From <the seashore> to <the ocean> the crab <is swept down into>.
-From <the grey sky> to <the ocean> the clouds <drift down onto>.
-From <the grey sky> to <the painted cliffs> the clouds <cling to>.
+The bird <swoops down onto> <the seashore> from <the grey sky>.
+The bird <soars up into> <the grey sky> from <the seashore>.
+The crab <crawls slowly up onto> <the seashore> from <the ocean>.
+The crab <is swept down into> <the ocean> from <the seashore>.
+The clouds <drift down onto> <the ocean> from <the grey sky>.
+The clouds <cling to> <the painted cliffs> from <the grey sky>.

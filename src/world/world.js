@@ -22,16 +22,19 @@ export default class World {
     this.timedEvents = {};
     this.output = '';
   }
+
   addRule(data) {
     const id = this.numRules++;
     this.rules.push(new Rule(data, id));
     return id;
   }
+
   addLocation(data) {
     data.id = this.numLocations;
     this.locations.push(new Location(data));
     this.numLocations++;
   }
+
   addActor(actor) {
     function add(actorToAdd) {
       const id = this.lastId + 1;
@@ -50,6 +53,7 @@ export default class World {
     const id = add.apply(this, [actor]);
     return id;
   }
+
   renderEvent(theStory) {
     let output = '';
     theStory.forEach(storyEvent => {
@@ -58,15 +62,18 @@ export default class World {
     });
     this.output = `${this.output}${output}`;
   }
+
   randomEvent() {
     let output = '';
     let nextEvent = false;
     let counter = 0;
+
     while (!nextEvent) {
       counter++;
       if (counter > 100) { throw new Error('Couldn\'t find match'); }
       nextEvent = randomMatch(this);
     }
+
     if (nextEvent.length === 2) {
       const [rule, actor] = nextEvent;
       output += processEvent(this, rule, [actor.id, rule.cause.type[1]]);
@@ -74,23 +81,28 @@ export default class World {
       const [rule, one, two] = nextEvent;
       output += processEvent(this, rule, [one.id, rule.cause.type[1], two.id]);
     }
+
     this.output = `${this.output}${output}`;
   }
+
   runStory(steps, theEvents = []) {
     this.registerTimedEvents(theEvents);
     while (this.timeIndex < steps) {
       advanceTime(this);
     }
   }
+
   registerTimedEvents(theEvents) {
     theEvents.forEach(event => {
       this.timedEvents[event.step] = event.event;
     });
   }
+
   findRule(piece) {
     const source = getPiece(this, piece[0]);
     const action = piece[1];
     const target = getPiece(this, piece[2]);
+
     for (let i = 0; i < this.numRules; i++) {
       const current = this.rules[i];
       if (checkMatch(current, source, target, action)) {
@@ -99,6 +111,7 @@ export default class World {
     }
     return false;
   }
+
   getLocationByName(name) {
     for (let i = 0; i < this.locations; i++) {
       if (this.locations[i].name === name) {
@@ -107,6 +120,7 @@ export default class World {
     }
     return false;
   }
+
   getLocationById(id) {
     for (let i = 0; i < this.locations; i++) {
       if (this.locations[i].id === id) {
@@ -115,6 +129,7 @@ export default class World {
     }
     return false;
   }
+
   getActorById(id) {
     for (let i = 0; i < this.size; i++) {
       if (this.actors[i].id === id) {
