@@ -11,7 +11,7 @@
 
 The Graph that Generates Stories
 
-StoryGraph is a library that allows you to generate a narrate based on random interactions between actors in a world. StoryGraph provides classes for actors, types, and rules that can model interactions between different classes of entities. Rules can create new actors, remove actors from the world, and move actors between locations. StoryGraph will match actors to rules with any combination of randomness and specificity for a given number of steps and render the result in an English narrative.
+StoryGraph is a library that allows you to generate a narrate based on random interactions between actors in a world. StoryGraph provides classes for actors, types, and rules that can model interactions between different classes of entities. Rules represent possible interactions between actors and, in addition to generating text output, can also create new actors, remove actors from the world, and move actors between locations.
 
 Story graph is inspired by [programming interactive worlds with linear logic](http://www.cs.cmu.edu/~cmartens/thesis/) by [Chris Martens](http://www.cs.cmu.edu/~cmartens/index.html) although it doesn't realize any of the specific principles she develops in that thesis.
 
